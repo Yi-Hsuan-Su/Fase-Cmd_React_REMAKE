@@ -1,0 +1,62 @@
+{
+  "manifest_version": 3,
+  "name": "Fast Cmd React",
+  "version": "1.0.0",
+  "description": "Quickly format and edit JSON data.",
+  "permissions": [
+    "storage",
+    "declarativeContent",
+    "alarms",
+    "notifications",
+    "activeTab",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": ["https://developer.chrome.com/*"],
+  "action": {
+    "default_popup": "dist/popup.html",
+    "default_icon": {
+      "16": "dist/icon.png",
+      "48": "dist/icon.png",
+      "128": "dist/icon.png"
+    }
+  },
+  "icons": {
+    "16": "dist/icon.png",
+    "48": "dist/icon.png",
+    "128": "dist/icon.png"
+  },
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://localhost:8500/index.html",
+        "https://office.mwsrv.com/public/html5/*"
+      ],
+      "js": ["dist/content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["dist/inject.js"],
+      "matches": ["http://localhost:8500/*"]
+    },
+    {
+      "resources": ["dist/inject.js"],
+      "matches": ["https://office.mwsrv.com/*"]
+    },
+    {
+      "resources": ["dist/inject.js"],
+      "matches": ["<all_urls>"]
+    },
+    {
+      "resources": ["dist/popup.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

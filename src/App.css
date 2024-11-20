@@ -1,0 +1,20 @@
+.nav-tabs {
+    background-color: white; /* 標籤導航的底色設置為白色 */
+}
+
+.nav-tabs .nav-link {
+    border-radius: 0; /* 取消圓角 */
+    color: black; /* 未激活狀態時的文字顏色設置為黑色 */
+    background-color: transparent; /* 未激活的背景顏色設置為透明 */
+}
+
+.nav-tabs .nav-link.active {
+    background-color: #007bff; /* 活動標籤的背景顏色設置為藍色 */
+    border-color: #007bff; /* 活動標籤的邊框顏色設置為藍色 */
+    color: white; /* 活動標籤的文字顏色設置為白色 */
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: #0a0ab3; /* 懸停時的背景顏色（淺灰色） */
+    color: black; /* 懸停時的文字顏色 */
+}
